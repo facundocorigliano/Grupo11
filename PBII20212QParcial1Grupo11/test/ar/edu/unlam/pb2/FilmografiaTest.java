@@ -29,4 +29,32 @@ public class FilmografiaTest {
 		ActorComediaRomantica ashtonKutcher = new ActorComediaRomantica(4, "Ashton Kutcher", TipoDeRomance.BESO, TipoDeHumor.FAMILIAR);
 		assertEquals(4, ashtonKutcher.getLegajo(), 0);
 	}
+
+	
+	@Test
+    public void queSePuedaAgregarUnActorAlElenco() {
+    	Actor jimCarrey = new ActorComedia(1, "Jim Carrey", TipoDeHumor.FAMILIAR);
+    	Elenco protagonistas = new Elenco(1);    	
+    	assertTrue(protagonistas.agregarActor(jimCarrey));    	    	
+    }
+	
+	@Test
+	public void queNoSePuedaAgregarMasActoresQueLosPermitidosEnElElenco() {
+		ActorRomance jamieDornan = new ActorRomance(3, "Jamie Dornan", TipoDeRomance.EROTICO);
+    	ActorAccion sylvesterStallone = new ActorAccion(2, "Sylvester Stallone", TipoDeAccion.GUERRA);
+    	ActorComediaRomantica ashtonKutcher = new ActorComediaRomantica(4, "Ashton Kutcher", TipoDeRomance.BESO, TipoDeHumor.FAMILIAR);
+    	ActorComedia jimCarrey = new ActorComedia(1, "Jim Carrey", TipoDeHumor.FAMILIAR);
+    	
+    	Elenco protagonistas = new Elenco(2);
+    	
+		protagonistas.agregarActor(ashtonKutcher);
+    	protagonistas.agregarActor(sylvesterStallone);
+    	protagonistas.agregarActor(jamieDornan);
+    	protagonistas.agregarActor(jimCarrey);
+    	
+    	assertEquals(2, protagonistas.getCantidadDeActores(), 0);
+	}
+	
+
 }
+
