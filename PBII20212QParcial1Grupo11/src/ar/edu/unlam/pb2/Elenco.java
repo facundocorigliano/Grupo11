@@ -3,14 +3,24 @@ package ar.edu.unlam.pb2;
 import java.util.ArrayList;
 
 public class Elenco {
-	private ArrayList<Actor> elenco;
 
-	public Elenco(ArrayList<Actor> elenco) {
-		super();
-		this.elenco = new ArrayList<>();
-	}
+	private Actor actores[];
 	
-	public Boolean agregarActor(Actor actor) {
-		return this.elenco.add(actor);
+	
+	public Elenco(Actor[] actores) {
+		super();
+		this.actores = new Actor[2];
+	}
+
+	public Boolean agregarActor(Actor actorNuevo) {
+		 boolean sePudoAgregar = false;
+		 
+	        for(int i=0; i<actores.length; i++) {
+	            if(actores[i] == null) {
+	            	actores[i] = actorNuevo;
+	                sePudoAgregar = true;
+	            }
+	        }
+			return sePudoAgregar;
 	}
 }
