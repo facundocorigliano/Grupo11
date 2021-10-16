@@ -29,8 +29,4 @@ public class FilmografiaTest {
 		ActorComediaRomantica ashtonKutcher = new ActorComediaRomantica(4, "Ashton Kutcher", TipoDeRomance.BESO, TipoDeHumor.FAMILIAR);
 		assertEquals(4, ashtonKutcher.getLegajo(), 0);
 	}
-	
-	
-	
-
 }
