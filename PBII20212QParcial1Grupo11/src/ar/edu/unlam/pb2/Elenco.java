@@ -3,12 +3,14 @@ package ar.edu.unlam.pb2;
 public class Elenco {
 	private Actor actores[];
 	private Integer cantidadActores;
-	private Integer cantidadRealActores = 0;
+	private Integer cantidadActoresEnElenco = 0;
+	TipoDePelicula tipoPelicula;
 		
-	public Elenco(Integer cantidadActores) {
+	public Elenco(Integer cantidadActores, TipoDePelicula tipoPelicula) {
 		super();
 		this.cantidadActores = cantidadActores;
 		this.actores = new Actor[cantidadActores]; 
+		this.tipoPelicula = tipoPelicula;
 	}
 
 	public Boolean agregarActor(Actor actorNuevo) {
@@ -18,7 +20,7 @@ public class Elenco {
 	            if(actores[i] == null) {
 	            	actores[i] = actorNuevo;
 	                sePudoAgregar = true;
-	                cantidadRealActores++;
+	                cantidadActoresEnElenco++;
 	                return sePudoAgregar;
 	            }
 	        }
@@ -26,16 +28,31 @@ public class Elenco {
 	}
 	
 	
+	public Boolean agregarActorAElenco(Actor nuevoActor){
+		boolean sePudoAgregar = false;
+		
+		for(int i = 0; i < cantidadActores; i++) {
+			if(actores[i] == null) {
+				if((this.tipoPelicula.equals(TipoDePelicula.ACCION) && nuevoActor instanceof IActorAccion) ||
+				   (this.tipoPelicula.equals(TipoDePelicula.COMEDIA) && (nuevoActor instanceof IActorComedia && !(nuevoActor instanceof IActorRomance))) ||
+				   (this.tipoPelicula.equals(TipoDePelicula.ROMANTICA) && (nuevoActor instanceof IActorRomance && !(nuevoActor instanceof IActorComedia))) ||
+				   (this.tipoPelicula.equals(TipoDePelicula.COMEDIAROMANTICA) && (nuevoActor instanceof IActorComedia && nuevoActor instanceof IActorRomance))){
+						actores[i] = nuevoActor;
+		                sePudoAgregar = true;
+		                cantidadActoresEnElenco++;
+		                return sePudoAgregar;
+				}
+			}
+		}
+		return sePudoAgregar;
+	}
+	
 	
 	public Integer getCantidadDeActores() {
-//		Integer cantidadActores = 0;
-//		
-//		for (int i = 0; i < actores.length; i++) {
-//			if(actores[i] != null) {
-//				cantidadActores++;
-//			}
-//		}
-//		return cantidadActores;
-		return cantidadRealActores;
+		return cantidadActoresEnElenco;
+	}
+	
+	public TipoDePelicula getTipoDePelicula() {
+		return this.tipoPelicula;
 	}
 }

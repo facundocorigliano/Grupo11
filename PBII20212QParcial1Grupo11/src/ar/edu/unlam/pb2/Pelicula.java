@@ -1,16 +1,41 @@
 package ar.edu.unlam.pb2;
 
+import java.util.ArrayList;
+
 public class Pelicula {
 	Integer id;
 	String nombre;
-	TipoDePelicula tipo;
-	Escena escenas[] = new Escena[5];
+	TipoDePelicula tipoPelicula;
+	ArrayList<Escena> escenas = new ArrayList<Escena>();
+	ArrayList<Elenco> elenco = new ArrayList<Elenco>();
 	
-	public Pelicula(Integer id, String nombre, TipoDePelicula tipo) {
+	public Pelicula(Integer id, String nombre, TipoDePelicula tipoPelicula) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.tipo = tipo;
+		this.tipoPelicula = tipoPelicula;
+	}
+	
+	public Boolean agregarEscena(Escena nuevaEscena) {
+		boolean sePudoAgregar = false;
+		if(!this.escenas.contains(nuevaEscena)) {			
+			this.escenas.add(nuevaEscena);
+			return sePudoAgregar;
+		}
+		return sePudoAgregar;
+	}
+	
+	public Integer getCantidadEscenas() {
+		return this.escenas.size();
+	}
+	
+	public void agregarElencoALaPelicula(Elenco nuevoElenco) {
+		if(this.tipoPelicula.equals(nuevoElenco.tipoPelicula))
+			this.elenco.add(nuevoElenco);
+	}
+	
+	public Integer getCantidadActoresEnPelicula() {
+		return this.elenco.size();
 	}
 
 	public Integer getId() {
@@ -30,24 +55,18 @@ public class Pelicula {
 	}
 
 	public TipoDePelicula getTipo() {
-		return tipo;
+		return tipoPelicula;
 	}
 
 	public void setTipo(TipoDePelicula tipo) {
-		this.tipo = tipo;
+		this.tipoPelicula = tipo;
 	}
 
-	public Escena[] getEscenas() {
+	public ArrayList<Escena> getEscenas() {
 		return escenas;
 	}
 
-	public void setEscenas(Escena[] escenas) {
+	public void setEscenas(ArrayList<Escena> escenas) {
 		this.escenas = escenas;
 	}
-	
-	
-<<<<<<< HEAD
-=======
-	
->>>>>>> 337625977aa83881b9a84b0e2885c61322579f06
 }

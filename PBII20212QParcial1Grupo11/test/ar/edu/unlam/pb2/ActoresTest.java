@@ -34,27 +34,24 @@ public class ActoresTest {
 	@Test
     public void queSePuedaAgregarUnActorAlElenco() {
     	Actor jimCarrey = new ActorComedia(1, "Jim Carrey", TipoDeHumor.FAMILIAR);
-    	Elenco protagonistas = new Elenco(1);    	
+    	Elenco protagonistas = new Elenco(1, TipoDePelicula.COMEDIA);    	
     	assertTrue(protagonistas.agregarActor(jimCarrey));    	    	
     }
 	
 	@Test
-	public void queNoSePuedaAgregarMasActoresQueLosPermitidosEnElElenco() {
+	public void queNoSePuedaAgregarMasActoresQueLosPermitidosEnElElencoYQueElElencoEsteFormadoSoloPorActoresDeLaMismaCategoriaDeLaPelicula() {
 		ActorRomance jamieDornan = new ActorRomance(3, "Jamie Dornan", TipoDeRomance.EROTICO);
     	ActorAccion sylvesterStallone = new ActorAccion(2, "Sylvester Stallone", TipoDeAccion.GUERRA);
     	ActorComediaRomantica ashtonKutcher = new ActorComediaRomantica(4, "Ashton Kutcher", TipoDeRomance.BESO, TipoDeHumor.FAMILIAR);
     	ActorComedia jimCarrey = new ActorComedia(1, "Jim Carrey", TipoDeHumor.FAMILIAR);
     	
-    	Elenco protagonistas = new Elenco(2);
+    	Elenco comedia = new Elenco(4, TipoDePelicula.COMEDIA);
     	
-		protagonistas.agregarActor(ashtonKutcher);
-    	protagonistas.agregarActor(sylvesterStallone);
-    	protagonistas.agregarActor(jamieDornan);
-    	protagonistas.agregarActor(jimCarrey);
+		comedia.agregarActorAElenco(ashtonKutcher);
+    	comedia.agregarActorAElenco(sylvesterStallone);
+    	comedia.agregarActorAElenco(jamieDornan);
+    	comedia.agregarActorAElenco(jimCarrey);
     	
-    	assertEquals(2, protagonistas.getCantidadDeActores(), 0);
+    	assertEquals(1, comedia.getCantidadDeActores(), 0);
 	}
-	
-
 }
-
