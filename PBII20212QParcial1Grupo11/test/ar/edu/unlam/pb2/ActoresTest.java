@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class FilmografiaTest {
+public class ActoresTest {
 
 	@Test
 	public void queSePuedaCrearUnActorDeComedia() {
