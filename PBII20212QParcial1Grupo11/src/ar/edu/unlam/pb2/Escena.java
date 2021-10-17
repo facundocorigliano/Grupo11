@@ -1,27 +1,17 @@
 package ar.edu.unlam.pb2;
 
 public class Escena {
-	Integer nroActores;
 	Double duracion;
 	Boolean esExterior;
-	//Elenco elenco[];
-	
-	public Escena(Integer nroActores, Double duracion, Boolean esExterior) {
+	Elenco elenco;
+		
+	public Escena(Elenco elenco, Double duracion, Boolean esExterior) {
 		super();
-		this.nroActores = nroActores;
+		this.elenco = elenco;
 		this.duracion = duracion;
 		this.esExterior = esExterior;
-		//this.elenco = new Elenco[nroActores];
 	}
-
-	public Integer getNroActores() {
-		return nroActores;
-	}
-
-	public void setNroActores(Integer nroActores) {
-		this.nroActores = nroActores;
-	}
-
+	
 	public Double getDuracion() {
 		return duracion;
 	}
@@ -38,6 +28,13 @@ public class Escena {
 		this.esExterior = esExterior;
 	}
 	
-	
-	
+	public Boolean bloquearElencosEnEscenasInternas(Elenco elenco) {
+		//Por decision de negocio y por covid no se permiten mas de 3 personas en una escena de interior
+		Boolean superaLaCantidadDeActoresPermitidos = false;
+		if(this.esExterior == false && elenco.getCantidadDeActores() > 3) {
+			superaLaCantidadDeActoresPermitidos = true;
+		}
+		return superaLaCantidadDeActoresPermitidos;
+	}
+		
 }

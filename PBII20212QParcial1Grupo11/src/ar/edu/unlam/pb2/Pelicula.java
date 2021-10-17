@@ -4,15 +4,41 @@ public class Pelicula {
 	Integer id;
 	String nombre;
 	TipoDePelicula tipo;
-	Escena escenas[] = new Escena[5];
+	Escena escenas [];
+	Integer cantidadDeEscenasTotal = 0;
 	
-	public Pelicula(Integer id, String nombre, TipoDePelicula tipo) {
+	public Pelicula(Integer id, String nombre,
+			TipoDePelicula tipo, Integer cantidadDeEscenasTotal) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.tipo = tipo;
+		this.escenas = new Escena[cantidadDeEscenasTotal];
 	}
-
+	
+	public Boolean agregarEscena(Escena nueva) {
+		 boolean sePudoAgregar = false;
+		 
+	        for(int i = 0; i < escenas.length; i++) {
+	            if(escenas[i] == null) {
+	            	escenas[i] = nueva;
+	                sePudoAgregar = true;
+	                return sePudoAgregar;
+	            }
+	        }
+			return sePudoAgregar;
+	}
+	
+	public Double calcularDuracion() {
+		Double duracionTotal = 0.0;
+		for(int i = 0; i < escenas.length ;i++) {
+			if(escenas[i]!=null) {
+				duracionTotal += escenas[i].getDuracion();
+			}	
+		}
+		return duracionTotal;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -45,9 +71,4 @@ public class Pelicula {
 		this.escenas = escenas;
 	}
 	
-	
-<<<<<<< HEAD
-=======
-	
->>>>>>> 337625977aa83881b9a84b0e2885c61322579f06
 }
