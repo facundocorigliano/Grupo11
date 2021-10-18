@@ -4,14 +4,14 @@ public class Escena {
 	Integer nroActores;
 	Double duracion;
 	Boolean esExterior;
-	//Elenco elenco[];
+	
 	
 	public Escena(Integer nroActores, Double duracion, Boolean esExterior) {
 		super();
 		this.nroActores = nroActores;
 		this.duracion = duracion;
 		this.esExterior = esExterior;
-		//this.elenco = new Elenco[nroActores];
+	
 	}
 
 	public Integer getNroActores() {

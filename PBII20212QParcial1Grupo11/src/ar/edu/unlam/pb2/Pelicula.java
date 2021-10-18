@@ -24,6 +24,15 @@ public class Pelicula {
 		}
 		return sePudoAgregar;
 	}
+
+	public Double calcularDuracionDeLaPelicula() {
+		Double duracionTotal = 0.0;
+		for(int i=0; i < escenas.size(); i++) {
+			duracionTotal += escenas.get(i).getDuracion();
+		}
+		return duracionTotal;
+		
+	}
 	
 	public Integer getCantidadEscenas() {
 		return this.escenas.size();

@@ -30,7 +30,7 @@ public class PeliculasTest {
     }
     
     @Test
-    public void saberCuantosActoresParticipanDeUnaPelicula() {
+    public void queSePuedaSaberCuantosActoresParticipanDeUnaPelicula() {
 		ActorRomance jamieDornan = new ActorRomance(3, "Jamie Dornan", TipoDeRomance.EROTICO);
     	ActorAccion sylvesterStallone = new ActorAccion(2, "Sylvester Stallone", TipoDeAccion.GUERRA);
     	ActorComediaRomantica ashtonKutcher = new ActorComediaRomantica(4, "Ashton Kutcher", TipoDeRomance.BESO, TipoDeHumor.FAMILIAR);
@@ -47,6 +47,21 @@ public class PeliculasTest {
     	
     	theTrumanShow.agregarElencoALaPelicula(comedia);
     	assertEquals(1, theTrumanShow.getCantidadActoresEnPelicula(), 0);
+    }
+    
+    @Test
+    public void queSePuedaConocerLaDuracionTotalDeLaPelicula() {
+    	Escena escena1 = new Escena(1000,10.0,true);
+    	Escena escena2 = new Escena(2000,10.0,false);
+    	Escena escena3 = new Escena(3000,10.0,true);
+    	
+    	Pelicula bastardosSinGloria = new Pelicula(11, "Bastardos sin gloria", TipoDePelicula.ACCION);
+    	
+    	bastardosSinGloria.agregarEscena(escena1);
+    	bastardosSinGloria.agregarEscena(escena2);
+    	bastardosSinGloria.agregarEscena(escena3);
+    	
+    	assertEquals(30.0,bastardosSinGloria.calcularDuracionDeLaPelicula(),0);
     }
     
 }
