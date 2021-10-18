@@ -3,15 +3,13 @@ package ar.edu.unlam.pb2;
 import java.util.ArrayList;
 
 public class Pelicula {
-	Integer id;
-	String nombre;
-	TipoDePelicula tipoPelicula;
-	ArrayList<Escena> escenas = new ArrayList<Escena>();
-	ArrayList<Elenco> elenco = new ArrayList<Elenco>();
+	private String nombre;
+	private TipoDePelicula tipoPelicula;
+	private ArrayList<Escena> escenas = new ArrayList<Escena>();
+	private ArrayList<Elenco> elenco = new ArrayList<Elenco>();
 	
-	public Pelicula(Integer id, String nombre, TipoDePelicula tipoPelicula) {
+	public Pelicula(String nombre, TipoDePelicula tipoPelicula) {
 		super();
-		this.id = id;
 		this.nombre = nombre;
 		this.tipoPelicula = tipoPelicula;
 	}
@@ -47,35 +45,15 @@ public class Pelicula {
 		return this.elenco.size();
 	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
 	public String getNombre() {
 		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 
 	public TipoDePelicula getTipo() {
 		return tipoPelicula;
 	}
 
-	public void setTipo(TipoDePelicula tipo) {
-		this.tipoPelicula = tipo;
-	}
-
 	public ArrayList<Escena> getEscenas() {
 		return escenas;
-	}
-
-	public void setEscenas(ArrayList<Escena> escenas) {
-		this.escenas = escenas;
 	}
 }

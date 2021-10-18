@@ -19,7 +19,7 @@ public class PeliculasTest {
     	Escena escena2 = new Escena(2000,85.2,false);
     	Escena escena3 = new Escena(3000,22.2,true);
 
-    	Pelicula bastardosSinGloria = new Pelicula(11, "Bastardos sin gloria", TipoDePelicula.ACCION);
+    	Pelicula bastardosSinGloria = new Pelicula("Bastardos sin gloria", TipoDePelicula.ACCION);
     	
     	bastardosSinGloria.agregarEscena(escena1);
     	bastardosSinGloria.agregarEscena(escena2);
@@ -30,14 +30,14 @@ public class PeliculasTest {
     
     @Test
     public void queSePuedaSaberCuantosActoresParticipanDeUnaPelicula() {
-		ActorRomance jamieDornan = new ActorRomance(3, "Jamie Dornan", TipoDeRomance.EROTICO);
-    	ActorAccion sylvesterStallone = new ActorAccion(2, "Sylvester Stallone", TipoDeAccion.GUERRA);
-    	ActorComediaRomantica ashtonKutcher = new ActorComediaRomantica(4, "Ashton Kutcher", TipoDeRomance.BESO, TipoDeHumor.FAMILIAR);
-    	ActorComedia jimCarrey = new ActorComedia(1, "Jim Carrey", TipoDeHumor.FAMILIAR);
+		Actor jamieDornan = new ActorRomance(3, "Jamie Dornan", TipoDeRomance.EROTICO);
+    	Actor sylvesterStallone = new ActorAccion(2, "Sylvester Stallone", TipoDeAccion.GUERRA);
+    	Actor ashtonKutcher = new ActorComediaRomantica(4, "Ashton Kutcher", TipoDeRomance.BESO, TipoDeHumor.FAMILIAR);
+    	Actor jimCarrey = new ActorComedia(1, "Jim Carrey", TipoDeHumor.FAMILIAR);
     	
     	Elenco comedia = new Elenco(4, TipoDePelicula.COMEDIA);
     	
-    	Pelicula theTrumanShow = new Pelicula(22, "The Truman Show", TipoDePelicula.COMEDIA);
+    	Pelicula theTrumanShow = new Pelicula("The Truman Show", TipoDePelicula.COMEDIA);
     	
 		comedia.agregarActorAElenco(ashtonKutcher);
     	comedia.agregarActorAElenco(sylvesterStallone);
@@ -54,7 +54,7 @@ public class PeliculasTest {
     	Escena escena2 = new Escena(2000,10.0,false);
     	Escena escena3 = new Escena(3000,10.0,true);
     	
-    	Pelicula bastardosSinGloria = new Pelicula(11, "Bastardos sin gloria", TipoDePelicula.ACCION);
+    	Pelicula bastardosSinGloria = new Pelicula("Bastardos sin gloria", TipoDePelicula.ACCION);
     	
     	bastardosSinGloria.agregarEscena(escena1);
     	bastardosSinGloria.agregarEscena(escena2);
@@ -68,10 +68,10 @@ public class PeliculasTest {
         public void queEnEscenasInternasNoPuedaHaberMasDe3Actores() { 
     	
             Elenco secundarios = new Elenco(4, TipoDePelicula.ROMANTICA);
-            ActorRomance jamieDornan = new ActorRomance(3, "Jamie Dornan", TipoDeRomance.EROTICO);
-            ActorRomance dakotaJohnson = new ActorRomance(2, "Dakota Johnson", TipoDeRomance.EROTICO);
-            ActorRomance ashtonKutcher = new ActorRomance(4, "Ashton Kutcher", TipoDeRomance.BESO);
-            ActorRomance zacEfron = new ActorRomance(1, "Zac Efron", TipoDeRomance.ADOLESCENTE);
+            Actor jamieDornan = new ActorRomance(3, "Jamie Dornan", TipoDeRomance.EROTICO);
+            Actor dakotaJohnson = new ActorRomance(2, "Dakota Johnson", TipoDeRomance.EROTICO);
+            Actor ashtonKutcher = new ActorRomance(4, "Ashton Kutcher", TipoDeRomance.BESO);
+            Actor zacEfron = new ActorRomance(1, "Zac Efron", TipoDeRomance.ADOLESCENTE);
 
             secundarios.agregarActorAElenco(zacEfron);
             secundarios.agregarActorAElenco(jamieDornan);
@@ -82,4 +82,5 @@ public class PeliculasTest {
            
             assertTrue(escenaEnLivingInterno.limitarActoresEnInteriores(secundarios));
         }
+    
 }

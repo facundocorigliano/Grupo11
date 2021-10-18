@@ -1,9 +1,9 @@
 package ar.edu.unlam.pb2;
 
 public class Escena {
-    Integer nroActores;
-    Double duracion;
-    Boolean esInterior;
+	private Integer nroActores;
+	private Double duracion;
+	private Boolean esInterior;
 
 
     public Escena(Integer nroActores, Double duracion, Boolean esInterior) {
@@ -12,28 +12,25 @@ public class Escena {
         this.duracion = duracion;
         this.esInterior = esInterior;
     }
+    
+    public Boolean limitarActoresEnInteriores(Elenco elenco) {
+        Boolean superaLaCantidadDeActoresPermitidos = false;
+        if(this.esInterior == true && elenco.getCantidadDeActores() > 3) {
+            superaLaCantidadDeActoresPermitidos = true;
+        }
+        return superaLaCantidadDeActoresPermitidos;
+    }
 
     public Integer getNroActores() {
         return nroActores;
-    }
-
-    public void setNroActores(Integer nroActores) {
-        this.nroActores = nroActores;
     }
 
     public Double getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(Double duracion) {
-        this.duracion = duracion;
-    }
-
     public Boolean getEsInterior() {
         return esInterior;
     }
 
-    public void setEsInterior(Boolean esExterior) {
-        this.esInterior = esExterior;
-    }
 }

@@ -11,28 +11,22 @@ public class Elenco {
 		this.cantidadActores = cantidadActores;
 		this.actores = new Actor[cantidadActores]; 
 		this.tipoPelicula = tipoPelicula;
-	}
-
-	public Boolean agregarActor(Actor actorNuevo) {
-		 boolean sePudoAgregar = false;
-		 
-	        for(int i = 0; i < cantidadActores; i++) {
-	            if(actores[i] == null) {
-	            	actores[i] = actorNuevo;
-	                sePudoAgregar = true;
-	                cantidadActoresEnElenco++;
-	                return sePudoAgregar;
-	            }
-	        }
-			return sePudoAgregar;
-	}
-	
+	}	
 	
 	public Boolean agregarActorAElenco(Actor nuevoActor){
 		boolean sePudoAgregar = false;
+		boolean existe = false;
+		
+		for(int i=0; i<actores.length; i++) {
+            if(actores[i] != null) {
+                if(actores[i].getLegajo() == nuevoActor.getLegajo()) {
+                    existe = true;
+                }
+            }
+        }
 		
 		for(int i = 0; i < cantidadActores; i++) {
-			if(actores[i] == null) {
+			if(actores[i] == null && !existe) {
 				if((this.tipoPelicula.equals(TipoDePelicula.ACCION) && nuevoActor instanceof IActorAccion) ||
 				   (this.tipoPelicula.equals(TipoDePelicula.COMEDIA) && (nuevoActor instanceof IActorComedia && !(nuevoActor instanceof IActorRomance))) ||
 				   (this.tipoPelicula.equals(TipoDePelicula.ROMANTICA) && (nuevoActor instanceof IActorRomance && !(nuevoActor instanceof IActorComedia))) ||
