@@ -10,8 +10,7 @@ public class PeliculasTest {
     @Test
     public void queSePuedaCrearUnaEscena() {
     	Escena escena1 = new Escena(2,25.2,true);
-    	assertTrue(escena1.getEsExterior());
-    	
+    	assertTrue(escena1.getEsInterior());
     }
     
     @Test
@@ -19,7 +18,7 @@ public class PeliculasTest {
     	Escena escena1 = new Escena(1000,45.0,true);
     	Escena escena2 = new Escena(2000,85.2,false);
     	Escena escena3 = new Escena(3000,22.2,true);
-    	
+
     	Pelicula bastardosSinGloria = new Pelicula(11, "Bastardos sin gloria", TipoDePelicula.ACCION);
     	
     	bastardosSinGloria.agregarEscena(escena1);
@@ -64,4 +63,23 @@ public class PeliculasTest {
     	assertEquals(30.0,bastardosSinGloria.calcularDuracionDeLaPelicula(),0);
     }
     
+
+    @Test
+        public void queEnEscenasInternasNoPuedaHaberMasDe3Actores() { 
+    	
+            Elenco secundarios = new Elenco(4, TipoDePelicula.ROMANTICA);
+            ActorRomance jamieDornan = new ActorRomance(3, "Jamie Dornan", TipoDeRomance.EROTICO);
+            ActorRomance dakotaJohnson = new ActorRomance(2, "Dakota Johnson", TipoDeRomance.EROTICO);
+            ActorRomance ashtonKutcher = new ActorRomance(4, "Ashton Kutcher", TipoDeRomance.BESO);
+            ActorRomance zacEfron = new ActorRomance(1, "Zac Efron", TipoDeRomance.ADOLESCENTE);
+
+            secundarios.agregarActorAElenco(zacEfron);
+            secundarios.agregarActorAElenco(jamieDornan);
+            secundarios.agregarActorAElenco(ashtonKutcher);
+            secundarios.agregarActorAElenco(dakotaJohnson);
+
+            Escena escenaEnLivingInterno = new Escena(secundarios.getCantidadDeActores(), 10.0, true);
+           
+            assertTrue(escenaEnLivingInterno.limitarActoresEnInteriores(secundarios));
+        }
 }
