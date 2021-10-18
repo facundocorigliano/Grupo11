@@ -13,9 +13,9 @@ public class Escena {
         this.esInterior = esInterior;
     }
     
-    public Boolean limitarActoresEnInteriores(Elenco elenco) {
+    public Boolean limitarActoresEnInteriores(Elenco elenco, Integer actoresMaximosEnInterior) {
         Boolean superaLaCantidadDeActoresPermitidos = false;
-        if(this.esInterior == true && elenco.getCantidadDeActores() > 3) {
+        if(this.esInterior == true && elenco.getCantidadDeActores() > actoresMaximosEnInterior) {
             superaLaCantidadDeActoresPermitidos = true;
         }
         return superaLaCantidadDeActoresPermitidos;

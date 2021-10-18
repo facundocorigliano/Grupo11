@@ -80,7 +80,7 @@ public class PeliculasTest {
 
             Escena escenaEnLivingInterno = new Escena(secundarios.getCantidadDeActores(), 10.0, true);
            
-            assertTrue(escenaEnLivingInterno.limitarActoresEnInteriores(secundarios));
+            assertTrue(escenaEnLivingInterno.limitarActoresEnInteriores(secundarios, 3));
         }
     
 }
